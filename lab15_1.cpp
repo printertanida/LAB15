@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-void show(int a,char b,char &c,int *x,char *y,int *z){
+void show(int a,char b,char &c,int *x,char *y,int **z){
     cout << a << " " << b << " " << c << " "<< x << " "<< (int *)y << " " << z << "\n";
 }
 
@@ -12,7 +12,7 @@ int main(){
     char &c=b;
     int *x=&a;
     char *y=&b;
-    int *z=x;
+    int **z=&x;
 
     cout << a << " " << b << " "<< c << " " << x << " " <<  &y << " " << z << "\n";
     cout << &a << " " << (int *)&b << " " << (int *)&c << " " << &x << " " << &y << " " << &z << "\n";
@@ -26,7 +26,7 @@ int main(){
     *x=6;
     show(a,b,c,x,y,z);
 
-    *z=7;
+    **z=7;
     show(a,b,c,x,y,z);
 
 
